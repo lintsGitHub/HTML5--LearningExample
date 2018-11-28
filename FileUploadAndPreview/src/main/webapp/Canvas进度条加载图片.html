@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas进度条加载图片</title>
+</head>
+<body>
+<div>
+    <input type="file" id="myfile">
+    <canvas id="canv" width="400" height="400"></canvas>
+</div>
+<script>
+    myfile.onchange = function () {
+       var url = URL.createObjectURL( myfile.files[0]);
+       var image = new Image();
+       image.src = url ;
+       var canv = document.getElementById("canv");
+       var context = canv.getContext("2d");
+       image.onload = function (ev) {
+           context.drawImage(image,0,0,canv.width,canv.height);
+       }
+       axios(
+            
+       )
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas图片预览</title>
+</head>
+<body>
+<form action="">
+    <input type="file" id="files">
+    <canvas id="canv"></canvas>
+    <button id="btn"></button>
+</form>
+<script>
+    var canv = document.querySelector("#canv");
+    var context = canv.getContext("2d");
+    var file = document.querySelector("#files");
+    file.onchange = function () {
+        var img = new Image();
+        var file1 = this.files[0];
+        var reader = new FileReader();
+        var base64 = URL.createObjectURL(reader);
+        img.onload = function (ev) {
+            context.drawImage(img,0,0);
+            context.stroke();
+        }
+        img.src = base64;
+    }
+</script>
+</body>
+</html>
